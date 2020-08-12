@@ -19,6 +19,7 @@ import elemental2.dom.HTMLElement;
  *  limitations under the License.
  */
 import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
@@ -28,7 +29,14 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true)
 public abstract class Path {
 
+   @JsProperty
+   public PathTransform transform;
 
+   @JsProperty
+   public Handler dragging;
+
+   @JsMethod
+   public native L makeDraggable();
 
 	/**
 	 * Adds the layer to the map.

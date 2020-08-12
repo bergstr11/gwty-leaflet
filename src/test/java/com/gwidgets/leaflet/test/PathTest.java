@@ -28,8 +28,8 @@ public class PathTest extends GwtyLeafletTestCase {
 					Polyline pol = L.polyline(polylineCoordinates, null);
 					
 					
-					assertEquals((pol.getLatLngs())[0][0].lat, 52.51);
-					assertEquals((pol.getLatLngs())[0][0].lng, 13.37);
+         assertEquals((pol.getLatLngs())[0].lat, 52.51);
+         assertEquals((pol.getLatLngs())[0].lng, 13.37);
 		
 					
 					return null;
@@ -40,8 +40,8 @@ public class PathTest extends GwtyLeafletTestCase {
 		InjectedLeafletResources.whenReady((e) -> {
 					Rectangle rect = L.rectangle(L.latLngBounds(L.latLng(52.5139, 13.34), L.latLng(54.51, -3.045)), null);
 					
-					assertEquals((rect.getLatLngs())[0][0].lat, 52.5139);
-					assertEquals((rect.getLatLngs())[0][1].lng, -3.045);
+         assertEquals((rect.getLatLngs())[0].lat, 52.5139);
+         assertEquals((rect.getLatLngs())[1].lng, -3.045);
 						
 					return null;
 		});
@@ -79,15 +79,14 @@ public class PathTest extends GwtyLeafletTestCase {
 					coordinates.add(L.latLng(52.5095, 13.34));
 
 					LatLng[] coordinatesArray = (LatLng[]) coordinates.toArray();
-					LatLng[][] polygonCoordinates = {coordinatesArray};
-					Polygon polg = L.polygon(polygonCoordinates, null);
+         Polygon polg = L.polygon(coordinatesArray, null);
 					
 										
-					assertEquals((polg.getLatLngs())[0][0].lat, 52.51);
-					assertEquals((polg.getLatLngs())[0][0].lng, 13.37);
+         assertEquals((polg.getLatLngs())[0].lat, 52.51);
+         assertEquals((polg.getLatLngs())[0].lng, 13.37);
 					
-					assertEquals((polg.getLatLngs())[0][1].lat, 52.5095);
-					assertEquals((polg.getLatLngs())[0][1].lng, 13.34);
+         assertEquals((polg.getLatLngs())[1].lat, 52.5095);
+         assertEquals((polg.getLatLngs())[1].lng, 13.34);
 					
 					
 					return null;

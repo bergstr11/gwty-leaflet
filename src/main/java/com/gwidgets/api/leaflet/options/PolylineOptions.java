@@ -17,7 +17,6 @@ package com.gwidgets.api.leaflet.options;
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
 import com.gwidgets.api.leaflet.Renderer;
-import com.gwidgets.api.leaflet.options.CircleOptions.Builder;
 
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsProperty;
@@ -263,6 +262,8 @@ public class PolylineOptions extends PathOptions {
 
 	    private Boolean interactive;
 
+       private Boolean transform;
+
 		private Double smoothFactor;
 
 		private Boolean noClip;
@@ -489,6 +490,12 @@ public class PolylineOptions extends PathOptions {
 
 	    public Builder interactive(Boolean interactive){this.interactive = interactive; return this;}
 
+       public Builder transform(Boolean transform)
+       {
+          this.transform = transform;
+          return this;
+       }
+
 		/**
 		 * Builds the PolylineOptions new instance
 		 *
@@ -536,6 +543,8 @@ public class PolylineOptions extends PathOptions {
 			    options.attribution = this.attribution;
 				if(this.interactive != null)
 			    options.interactive = this.interactive;
+          if (this.transform != null)
+             options.transform = this.transform;
 			return options;
 		}
 	}

@@ -65,7 +65,13 @@ public class TileLayerOptions {
 	@JsProperty
 	private String attribution;
 
-	@JsProperty
+   @JsProperty
+   private String accessToken;
+
+   @JsProperty
+   private String id;
+
+   @JsProperty
 	private boolean tms;
 
 
@@ -360,6 +366,10 @@ public class TileLayerOptions {
 
 		private String attribution;
 
+      private String id;
+
+      private String accessToken;
+
 		private Boolean tms;
 
 		private Boolean noWrap;
@@ -481,13 +491,40 @@ public class TileLayerOptions {
 			return this;
 		}
 
-		/**
-		 * If true, inverses Y axis numbering for tiles (turn this on for TMS services).
-		 * </br>
-		 * default true
-		 * @param tms the tms
-		 * @return the builder
-		 */
+      /**
+       * the access token used by the tile service. </br>
+       * default ""
+       * 
+       * @param accessToken the access token
+       * @return the builder
+       */
+      public Builder accessToken(String accessToken)
+      {
+         this.accessToken = accessToken;
+         return this;
+      }
+
+      /**
+       * the tile service id, describes the layer data. </br>
+       * default ""
+       * 
+       * @param id the id
+       * @return the builder
+       */
+      public Builder id(String id)
+      {
+         this.id = id;
+         return this;
+      }
+
+      /**
+       * If true, inverses Y axis numbering for tiles (turn this on for TMS services).
+       * </br>
+       * default true
+       * 
+       * @param tms the tms
+       * @return the builder
+       */
 		public Builder tms(Boolean tms) {
 			this.tms = tms;
 			return this;
@@ -627,6 +664,10 @@ public class TileLayerOptions {
 			options.errorTileUrl = this.errorTileUrl;
 			if(this.attribution != null)
 			options.attribution = this.attribution;
+      if (this.accessToken != null)
+         options.accessToken = this.accessToken;
+      if (this.id != null)
+         options.id = this.id;
 			if(this.tms != null)
 			options.tms = this.tms;
 			if(this.noWrap != null)

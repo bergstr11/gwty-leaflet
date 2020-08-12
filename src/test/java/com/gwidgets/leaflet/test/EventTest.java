@@ -154,9 +154,7 @@ public class EventTest extends GwtyLeafletTestCase {
 				
                 LatLng[] row = {L.latLng(52.51, 13.40)};
 				
-				LatLng[][] latlngs = {row};
-				
-				Polygon polygon = L.polygon(latlngs, null);
+         Polygon polygon = L.polygon(row, null);
 
 				polygon.on(EventTypes.PolygonEvents.REMOVE, (event) -> {
 

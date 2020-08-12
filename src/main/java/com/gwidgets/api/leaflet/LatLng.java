@@ -24,13 +24,11 @@ import jsinterop.annotations.JsType;
  * @author <a href="mailto:zakaria.amine88@gmail.com">Zakaria Amine</a>
  */
 @JsType(isNative = true)
-public class LatLng {
+public class LatLng
+{
 
-	
-	
-
-
-	private LatLng() {
+   public LatLng()
+   {
 		
 	}
 
@@ -89,4 +87,10 @@ public class LatLng {
 	@JsMethod
 	public native LatLng wrap(double left, double right);
 
+   /**
+    * @return a new LatLngBounds object in which each boundary is sizeInMeters/2
+    * meters apart from the LatLng.
+    */
+   @JsMethod
+   public native LatLngBounds toBounds(double sizeInMeters);
 }

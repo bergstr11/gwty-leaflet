@@ -61,7 +61,7 @@ public class Polyline extends Path implements Layer, Evented {
 	 * @return the lat lngs
 	 */
 	@JsMethod
-	public native LatLng[][] getLatLngs();
+   public native LatLng[] getLatLngs();
 
 	/**
 	 * Allows adding, removing or replacing points in the polyline. Returns the array of removed points (if any).
@@ -80,6 +80,9 @@ public class Polyline extends Path implements Layer, Evented {
 	 */
 	@JsMethod
 	public native LatLngBounds getBounds();
+
+   @JsMethod
+   public native LatLng getCenter();
 
 	/**
 	 * Returns a GeoJSON representation of the polyline (GeoJSON LineString Feature).

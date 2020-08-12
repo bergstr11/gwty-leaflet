@@ -143,7 +143,7 @@ Note that points you pass when creating a polygon shouldn't have an additional l
 	 * @param options the Polygon options
 	 * @return a new MultiPolyline object
 	 */
-	public static native Polygon polygon(LatLng[][] latlngs,
+   public static native Polygon polygon(LatLng[] latlngs,
 			PolylineOptions options);
 
 

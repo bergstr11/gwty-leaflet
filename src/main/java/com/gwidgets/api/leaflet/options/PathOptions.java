@@ -95,6 +95,10 @@ public class PathOptions {
     protected boolean interactive;
 	/**********************************************
 	*********************************************/
+   @JsProperty
+   protected boolean transform;
+   /**********************************************
+   *********************************************/
 
 	/**
 	 * Gets Whether to draw stroke along the path. Set it to false to disable
