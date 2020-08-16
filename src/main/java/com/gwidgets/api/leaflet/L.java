@@ -15,6 +15,7 @@ import com.gwidgets.api.leaflet.options.ImageOverlayOptions;
 import com.gwidgets.api.leaflet.options.MapOptions;
 import com.gwidgets.api.leaflet.options.MarkerOptions;
 import com.gwidgets.api.leaflet.options.PathOptions;
+import com.gwidgets.api.leaflet.options.PolylineMeasureOptions;
 import com.gwidgets.api.leaflet.options.PolylineOptions;
 import com.gwidgets.api.leaflet.options.PopupOptions;
 import com.gwidgets.api.leaflet.options.RendererOptions;
@@ -381,6 +382,8 @@ Note that points you pass when creating a polygon shouldn't have an additional l
         	@JsMethod
 	        public static native Scale scale(ControlScaleOptions options);
 
+           @JsMethod
+           public static native Layer polylineMeasure(PolylineMeasureOptions options);
 	    }
 
 

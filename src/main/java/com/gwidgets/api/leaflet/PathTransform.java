@@ -1,6 +1,6 @@
 package com.gwidgets.api.leaflet;
 
-import com.gwidgets.api.leaflet.options.TransformOptions;
+import com.gwidgets.api.leaflet.options.PathTransformOptions;
 
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
@@ -9,5 +9,5 @@ import jsinterop.annotations.JsType;
 public class PathTransform
 {
    @JsMethod
-   public native L enable(TransformOptions options);
+   public native L enable(PathTransformOptions options);
 }

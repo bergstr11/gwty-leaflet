@@ -268,7 +268,6 @@ public class PolylineOptions extends PathOptions {
 
 		private Boolean noClip;
 
-
 		public Builder() {
 
 		}

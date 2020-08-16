@@ -894,7 +894,7 @@ L.Handler.PathTransform = L.Handler.extend({
       fillOpacity: 1,
       weight:      2,
       opacity:     0.7,
-      setCursor:   true
+      setCursor:   true,
     },
 
     // rectangle
@@ -908,12 +908,17 @@ L.Handler.PathTransform = L.Handler.extend({
 
     // rotation handler
     rotateHandleOptions: {
+      radius:      30,
+      fillColor:   '#ffffff',
+      color:       '#202020',
+      fillOpacity: 1,
       weight:    1,
       opacity:   1,
-      setCursor: true
+      setCursor: true,
+	  shape: 'rotate'
     },
     // rotation handle length
-    handleLength: 20,
+    handleLength: 25,
 
     // maybe I'll add skewing in the future
     edgesCount:   4,
@@ -1342,9 +1347,13 @@ L.Handler.PathTransform = L.Handler.extend({
 
     this._handleLine = new L.Polyline([topPoint, handlerPosition],
       this.options.rotateHandleOptions).addTo(this._handlersGroup);
-    var RotateHandleClass = this.options.rotateHandleClass;
+	var RotateHandleClass;
+	if (typeof this.options.rotateHandleClass === 'string' || this.options.rotateHandleClass instanceof String)
+    	RotateHandleClass = eval(this.options.rotateHandleClass);
+	else
+    	RotateHandleClass = this.options.rotateHandleClass;
     this._rotationMarker = new RotateHandleClass(handlerPosition,
-      this.options.handlerOptions)
+      this.options.rotateHandleOptions)
       .addTo(this._handlersGroup)
       .on('mousedown', this._onRotateStart, this);
 
