@@ -908,7 +908,7 @@ L.Handler.PathTransform = L.Handler.extend({
 
     // rotation handler
     rotateHandleOptions: {
-      radius:      30,
+      radius:      10,
       fillColor:   '#ffffff',
       color:       '#202020',
       fillOpacity: 1,
@@ -918,7 +918,7 @@ L.Handler.PathTransform = L.Handler.extend({
 	  shape: 'rotate'
     },
     // rotation handle length
-    handleLength: 25,
+    handleLength: 20,
 
     // maybe I'll add skewing in the future
     edgesCount:   4,
