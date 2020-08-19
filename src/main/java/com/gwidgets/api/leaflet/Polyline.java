@@ -53,7 +53,7 @@ public class Polyline extends Path implements Layer, Evented {
 	 * @return the L class
 	 */
 	@JsMethod
-	public native L setLatLngs(LatLng[] latlngs);
+   public native L setLatLngs(LatLng[][] latlngs);
 
 	/**
 	 * Returns an array of the points in the path.
@@ -61,7 +61,7 @@ public class Polyline extends Path implements Layer, Evented {
 	 * @return the lat lngs
 	 */
 	@JsMethod
-   public native LatLng[] getLatLngs();
+   public native LatLng[][] getLatLngs();
 
 	/**
 	 * Allows adding, removing or replacing points in the polyline. Returns the array of removed points (if any).
