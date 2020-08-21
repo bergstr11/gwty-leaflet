@@ -1,4 +1,19 @@
 /**
+ * create a Draw.Polygon object
+ */
+L.startPolygon = function (map, options, onCreated, onCancel) {
+	var poly = new L.Draw.Polygon (map, options);
+	map.on(L.Draw.Event.CREATED, function(event) {
+		onCreated(event.layer._latlngs);
+	});
+	map.on("draw:canceled", function(event) {
+		onCancel(null);
+	});
+	poly.enable();
+    return poly;
+};
+
+/**
  * @extends {L.ShapeMarker}
  */
 L.IrrimasterRotateHandle = L.ShapeMarker.extend({

@@ -14,6 +14,7 @@ public class LeafletResources {
       HTMLScriptElement transformScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement measureScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement svgIconScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
+      HTMLScriptElement drawScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement irrimasterScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
 
 		if (debug) {
@@ -25,6 +26,7 @@ public class LeafletResources {
          transformScript.src = GWT.getModuleName() + "/leaflet/L.Path.Transform.js";
          svgIconScript.src = GWT.getModuleName() + "/leaflet/leaflet-svg-shape-markers.min.js";
 		}
+      drawScript.src = GWT.getModuleName() + "/leaflet/leaflet-draw.js";
       irrimasterScript.src = GWT.getModuleName() + "/leaflet/irrimaster.js";
       measureScript.src = GWT.getModuleName() + "/leaflet/Leaflet.PolylineMeasure.js";
 
@@ -32,6 +34,7 @@ public class LeafletResources {
       measureScript.type = "text/javascript";
       transformScript.type = "text/javascript";
       svgIconScript.type = "text/javascript";
+      drawScript.type = "text/javascript";
       irrimasterScript.type = "text/javascript";
 
 		HTMLLinkElement leafletStyle = (HTMLLinkElement) DomGlobal.document.createElement("link");
@@ -51,9 +54,10 @@ public class LeafletResources {
       };
       transformScript.onload = e -> {
          DomGlobal.document.head.appendChild(svgIconScript);
+         DomGlobal.document.head.appendChild(drawScript);
          return null;
       };
-      svgIconScript.onload = e -> {
+      drawScript.onload = e -> {
          DomGlobal.document.head.appendChild(irrimasterScript);
          return null;
       };

@@ -8,6 +8,7 @@ import com.gwidgets.api.leaflet.options.ControlOptions;
 import com.gwidgets.api.leaflet.options.ControlScaleOptions;
 import com.gwidgets.api.leaflet.options.ControlZoomOptions;
 import com.gwidgets.api.leaflet.options.DivIconOptions;
+import com.gwidgets.api.leaflet.options.DrawPolygonOptions;
 import com.gwidgets.api.leaflet.options.GeoJSONOptions;
 import com.gwidgets.api.leaflet.options.GridLayerOptions;
 import com.gwidgets.api.leaflet.options.IconOptions;
@@ -25,6 +26,7 @@ import com.gwidgets.api.leaflet.options.TooltipOptions;
 
 import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsConstructor;
+import jsinterop.annotations.JsFunction;
 
 /**
  *  Copyright 2016 G-Widgets
@@ -384,8 +386,7 @@ Note that points you pass when creating a polygon shouldn't have an additional l
 
            @JsMethod
            public static native Layer polylineMeasure(PolylineMeasureOptions options);
-	    }
-
+        }
 
 	/**
 	 * Used to load and display tile layers on the map.
@@ -511,5 +512,15 @@ Note that points you pass when creating a polygon shouldn't have an additional l
 
 
 	}
+
+   @JsFunction
+   public interface StartPolygonCallback
+   {
+      void accept(LatLng[] polygon);
+   }
+
+   @JsMethod
+   public static native Handler startPolygon(Map map, DrawPolygonOptions options, StartPolygonCallback onSuccess,
+         StartPolygonCallback onCancel);
 
 }
