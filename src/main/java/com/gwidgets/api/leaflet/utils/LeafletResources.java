@@ -45,6 +45,10 @@ public class LeafletResources {
       measureStyle.href = GWT.getModuleName() + "/leaflet/Leaflet.PolylineMeasure.css";
       measureStyle.rel = "stylesheet";
 
+      HTMLLinkElement drawStyle = (HTMLLinkElement) DomGlobal.document.createElement("link");
+      drawStyle.href = GWT.getModuleName() + "/leaflet/leaflet.draw.css";
+      drawStyle.rel = "stylesheet";
+
       irrimasterScript.onload = function;
 
       leafletScript.onload = e -> {
@@ -64,5 +68,6 @@ public class LeafletResources {
       DomGlobal.document.head.appendChild(leafletScript);
       DomGlobal.document.head.appendChild(leafletStyle);
       DomGlobal.document.head.appendChild(measureStyle);
+      DomGlobal.document.head.appendChild(drawStyle);
 	}
 }

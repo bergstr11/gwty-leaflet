@@ -523,4 +523,9 @@ Note that points you pass when creating a polygon shouldn't have an additional l
    public static native Handler startPolygon(Map map, DrawPolygonOptions options, StartPolygonCallback onSuccess,
          StartPolygonCallback onCancel);
 
+   @JsMethod
+   public static native Handler editPolygon(Polygon polygon);
+
+   @JsMethod
+   public static native Double calculateGeodesicArea(Layer layer);
 }

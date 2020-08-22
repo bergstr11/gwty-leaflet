@@ -10,4 +10,16 @@ public class PathTransform
 {
    @JsMethod
    public native L enable(PathTransformOptions options);
+
+   @JsMethod
+   public native void scale(Point scale, LatLng origin);
+
+   @JsMethod
+   public native void rotate(Double angle, LatLng origin);
+
+   @JsMethod
+   public native PathTransform transform(Double angle, Point scale, LatLng rotationOrigin, LatLng scaleOrigin);
+
+   @JsMethod
+   public native void reset();
 }

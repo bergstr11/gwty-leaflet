@@ -3,15 +3,31 @@
  */
 L.startPolygon = function (map, options, onCreated, onCancel) {
 	var poly = new L.Draw.Polygon (map, options);
-	map.on(L.Draw.Event.CREATED, function(event) {
-		onCreated(event.layer._latlngs);
-	});
-	map.on("draw:canceled", function(event) {
+	var func = function(event) {
+		map.off(L.Draw.Event.CREATED, func);
+		onCreated(event.layer._latlngs[0]);
+	};
+	map.on(L.Draw.Event.CREATED, func);
+	
+	var func2 = function(event) {
+		map.off("draw:canceled", func2);
 		onCancel(null);
-	});
+	};
+	map.on("draw:canceled", func2);
 	poly.enable();
     return poly;
 };
+
+L.editPolygon = function (polygon) {
+	var poly = new L.Edit.Poly (polygon);
+	poly.enable();
+    return poly;
+};
+
+L.calculateGeodesicArea = function(layer) {
+	var area = L.GeometryUtil.geodesicArea(layer.getLatLngs()[0]);
+	return area;
+}
 
 /**
  * @extends {L.ShapeMarker}
