@@ -13,18 +13,15 @@ public class LeafletResources {
 		HTMLScriptElement leafletScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement transformScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement measureScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
-      HTMLScriptElement svgIconScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement drawScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
       HTMLScriptElement irrimasterScript = (HTMLScriptElement) DomGlobal.document.createElement("script");
 
 		if (debug) {
 			leafletScript.src = GWT.getModuleName() + "/leaflet/leaflet-src.js";
          transformScript.src = GWT.getModuleName() + "/leaflet/L.Path.Transform-src.js";
-         svgIconScript.src = GWT.getModuleName() + "/leaflet/leaflet-svg-shape-markers.js";
 		} else {
 			leafletScript.src = GWT.getModuleName() + "/leaflet/leaflet.js";
          transformScript.src = GWT.getModuleName() + "/leaflet/L.Path.Transform.js";
-         svgIconScript.src = GWT.getModuleName() + "/leaflet/leaflet-svg-shape-markers.min.js";
 		}
       drawScript.src = GWT.getModuleName() + "/leaflet/leaflet-draw.js";
       irrimasterScript.src = GWT.getModuleName() + "/leaflet/irrimaster.js";
@@ -33,7 +30,6 @@ public class LeafletResources {
 		leafletScript.type="text/javascript";
       measureScript.type = "text/javascript";
       transformScript.type = "text/javascript";
-      svgIconScript.type = "text/javascript";
       drawScript.type = "text/javascript";
       irrimasterScript.type = "text/javascript";
 
@@ -57,7 +53,6 @@ public class LeafletResources {
          return null;
       };
       transformScript.onload = e -> {
-         DomGlobal.document.head.appendChild(svgIconScript);
          DomGlobal.document.head.appendChild(drawScript);
          return null;
       };
